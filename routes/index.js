@@ -1,6 +1,11 @@
 import { urlRoutes } from "../routes/url.js"
 function bootStrap(app) {
-    app.use('/api', urlRoutes);
+    app.use(urlRoutes);
+
+
+
+
+    
 }
 
 export { bootStrap }

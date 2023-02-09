@@ -10,6 +10,10 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.get('/', (req, res, next)=>{
+    res.status(200).json({status: true, message: 'URLSHORTNER api AT YOUR SERVICE'});
+});
+
 bootStrap(app);
 
 app.use((error, req, res, next) => {

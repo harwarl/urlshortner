@@ -1,5 +1,7 @@
 import { Url } from '../models/url.js';
 import { nanoid } from 'nanoid';
+import dotenv from 'dotenv';
+dotenv.config()
 
 async function postOrigUrl(req, res, next) {
     const { origUrl } = req.body;
@@ -7,7 +9,7 @@ async function postOrigUrl(req, res, next) {
     try {
         let url = await Url.findOne({ origUrl: origUrl })
         if (!url) {
-            const shortUrl = `http://localhost:3000/api/${urlId}`;
+            const shortUrl = `${process.env.BASE}/${urlId}`;
             const urlNew = new Url({
                 urlId: urlId,
                 origUrl: origUrl,
@@ -49,7 +51,7 @@ async function getOrigUrl(req, res, next){
         await Url.findOneAndUpdate({urlId: urlId}, {
             $inc: {clicks : 1}
         });
-        res.status(201).json({status: true, redirect: true, web: url.origUrl})
+        res.status(201).json({status: true, redirect: true, weblink: url.origUrl})
     }
     catch(err){
         const error = new Error(err.message);
