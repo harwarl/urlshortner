@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import { bootStrap } from './routes/index.js'
+import { bootStrap } from './src/routes/index.js'
 dotenv.config();
 
 const app = express();
