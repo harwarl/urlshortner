@@ -1,6 +1,6 @@
 import { urlRoutes } from "../routes/url.js"
 function bootStrap(app) {
-    app.use(urlRoutes);
+    app.use('/.netlify/functions/api', urlRoutes);
 
 
 

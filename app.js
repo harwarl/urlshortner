@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import { bootStrap } from './src/routes/index.js'
+import { bootStrap } from './routes/index.js'
 const PORT = process.env.PORT || 3000;
 dotenv.config();
 
