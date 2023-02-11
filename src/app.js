@@ -30,7 +30,11 @@ app.use('*', (req, res, next) => {
 });
 
 mongoose
-    .connect(process.env.MONGOURI)
+    .connect(process.env.MONGOURI, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    })
     .then(() => {
         console.log('DB Connected');
     })
