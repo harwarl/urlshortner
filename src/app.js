@@ -32,10 +32,12 @@ app.use('*', (req, res, next) => {
 mongoose
     .connect(process.env.MONGOURI)
     .then(() => {
-        app.listen(process.env.PORT, () => {
-            console.log(`App is running on port ${process.env.PORT}`);
-        })
+        console.log('DB Connected');
     })
     .catch(err => {
         console.log(err);
     });
+
+    app.listen(process.env.PORT, () => {
+        console.log(`App is running on port ${process.env.PORT}`);
+    })
